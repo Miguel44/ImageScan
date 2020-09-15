@@ -1,0 +1,43 @@
+* {
+    background-color: lightgoldenrodyellow;
+}
+.header {
+  padding: 30px;
+  text-align: center;
+  color: black;
+}
+.header h1 {
+  font-size: 25px;
+}
+
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.content {
+  max-width: 500px;
+    text-align: center;
+  margin: auto;
+}
+
+.form-group{
+    background: #39D2B4;
+}
+
+.custom-file-input{
+    display: inline-block;
+    padding: 12px 20px;
+    color: black;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background: lightgray;
+}
