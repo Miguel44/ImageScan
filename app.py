@@ -7,8 +7,9 @@ from keras.applications.imagenet_utils import preprocess_input, decode_predictio
 from keras.models import load_model
 from keras.preprocessing import image
 # Flask
-from flask import Flask, flash, request, redirect, render_template, jsonify, json
+from flask import Flask, flash, request, redirect, render_template, jsonify, json, url_for
 from werkzeug.utils import secure_filename
+import urllib.request
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
@@ -98,17 +99,20 @@ def upload_image():
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         image.save(image_path)
         print('upload_image filename: ' + filename)
-        flash('Image successfully uploaded and displayed')
 
-        # The image is process for classification.
         prediction = model_predict(image_path, model)
         pred_class = decode_predictions(prediction, top=5)
         results = convert_json(pred_class)
         print(results)
-        return render_template('index.html')
+        return render_template('index.html', filename = filename)
     else:
         flash('Allowed image types are -> png, jpg, jpeg')
         return redirect(request.url)
+
+
+@app.route('/display/<filename>')
+def display_image(filename):
+    return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 
 if __name__ == '__main__':

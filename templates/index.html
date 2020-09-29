@@ -17,9 +17,14 @@
             <input type="file" class="custom-file-input" name="image" id="image">
           </div>
         </div>
-
+      <div class = "img_butt">
+        {% if filename %}
+        <div class = "image-preview">
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Upload</button>
-
+        </div>
       </form>
 
 

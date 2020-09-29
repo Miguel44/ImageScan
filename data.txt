@@ -1,1 +1,1 @@
-{"objects": ["fox_squirrel", "hare", "marmot", "wood_rabbit", "partridge"]}
+{"objects": ["Doberman", "basenji", "cougar", "wallaby", "German_shepherd"]}
